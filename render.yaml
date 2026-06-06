@@ -1,0 +1,40 @@
+# One-click deploy blueprint for Render (https://render.com).
+# In Render: New → Blueprint → connect this repo. Then fill the secret env vars
+# (marked sync:false) in the dashboard. Free plan keeps the demo live 90+ days;
+# the local receipt cache is ephemeral on free (HCS proofs are the source of truth).
+services:
+  - type: web
+    name: capscribe
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3001
+      - key: HEDERA_NETWORK
+        value: testnet
+      - key: FEE_PAYER
+        value: '0.0.7162784'
+      - key: FACILITATOR_URL
+        value: https://api.testnet.blocky402.com/v1
+      - key: ANTHROPIC_MODEL
+        value: claude-sonnet-4-6
+      - key: DATA_DIR
+        value: .data
+      - key: DEMO_BYPASS
+        value: 'false'
+      # Secrets — set these in the Render dashboard (never commit them):
+      - key: HEDERA_ACCOUNT_ID
+        sync: false
+      - key: HEDERA_PRIVATE_KEY
+        sync: false
+      - key: PAYMENT_RECEIVER
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: WALLETCONNECT_PROJECT_ID
+        sync: false
