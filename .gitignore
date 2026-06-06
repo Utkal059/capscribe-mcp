@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+web/node_modules/
+
+# Build output
+dist/
+web/dist/
+
+# Secrets & local env
+.env
+.env.*.local
+
+# Runtime data (receipt store, cached topic)
+.data/
+.data-test/
+
+# Logs
+*.log
+npm-debug.log*
+
+# TypeScript incremental build cache
+*.tsbuildinfo
+
+# Local Claude Code / editor harness config
+.claude/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

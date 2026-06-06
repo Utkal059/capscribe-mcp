@@ -1,0 +1,12 @@
+node_modules
+web/node_modules
+dist
+web/dist
+.data
+.data-test
+.git
+.env
+.env.*.local
+*.log
+npm-debug.log*
+.DS_Store
