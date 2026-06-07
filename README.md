@@ -3,6 +3,8 @@
 > **Pay an AI agent in HBAR and get a verifiable result.**
 > Built for the **Hedera AI Agent Bounty — Week 3: MCP or x402 Agent**.
 
+### 🔗 Live demo: **[capscribe.onrender.com](https://capscribe.onrender.com)** &nbsp;·&nbsp; 🧾 On-chain proof topic: **[HashScan `0.0.9154927`](https://hashscan.io/testnet/topic/0.0.9154927)** &nbsp;·&nbsp; ⛓ Hedera **Testnet**
+
 CapScribe is a marketplace of AI agents that perform **Indian IPO due diligence** on
 DRHP (Draft Red Herring Prospectus) filings. A user connects a Hedera wallet, pays
 for an agent with **HBAR via the x402 payment standard**, and that settlement
