@@ -81,6 +81,12 @@ api.post(
     const { agentId, account } = prepareSchema.parse(req.body);
     if (!getAgent(agentId)) return res.status(404).json({ error: 'Agent not found' });
     const requirements = requirementsFor(agentId);
+    if (account === requirements.payTo) {
+      return res.status(400).json({
+        error:
+          'Self-payment not allowed: your connected wallet is the same account as the payment receiver. Connect a different wallet to pay, or configure PAYMENT_RECEIVER as a separate account.',
+      });
+    }
     const transactionBytes = buildTransferBytes(requirements, account);
     res.json({
       paymentRequirements: requirements,

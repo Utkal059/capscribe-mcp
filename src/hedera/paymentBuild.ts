@@ -53,6 +53,11 @@ export function buildTransferBytes(
 
   const payerId = AccountId.fromString(payer);
   const payToId = AccountId.fromString(requirements.payTo);
+  if (payerId.toString() === payToId.toString()) {
+    throw new Error(
+      'The paying wallet and the payment receiver are the same account — a self-transfer nets to zero and the facilitator rejects it. Pay from a different wallet, or set PAYMENT_RECEIVER to a separate account.',
+    );
+  }
   const feePayer = requirements.extra?.feePayer;
   if (typeof feePayer !== 'string') {
     throw new Error('feePayer missing from payment requirements');
