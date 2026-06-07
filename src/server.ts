@@ -14,8 +14,11 @@ const app = express();
 app.disable('x-powered-by');
 app.use((_req, res, next) => {
   res.setHeader('X-Content-Type-Options', 'nosniff');
-  res.setHeader('X-Frame-Options', 'DENY');
   res.setHeader('Referrer-Policy', 'no-referrer');
+  // Allow embedding inside wallet in-app browsers (e.g. HashPack's DAPPS tab).
+  // X-Frame-Options has no "allow-all" value, so we omit it and use CSP
+  // frame-ancestors instead, which permits framing by any origin.
+  res.setHeader('Content-Security-Policy', 'frame-ancestors *');
   next();
 });
 
