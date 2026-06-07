@@ -13,6 +13,10 @@ services:
     envVars:
       - key: NODE_ENV
         value: production
+      # NODE_ENV=production makes npm skip devDependencies; vite & typescript
+      # are devDeps needed to build, so force npm to install them during build.
+      - key: NPM_CONFIG_PRODUCTION
+        value: 'false'
       - key: PORT
         value: 3001
       - key: HEDERA_NETWORK
