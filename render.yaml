@@ -24,7 +24,7 @@ services:
       - key: FEE_PAYER
         value: '0.0.7162784'
       - key: FACILITATOR_URL
-        value: https://api.testnet.blocky402.com/v1
+        value: https://api.testnet.blocky402.com
       - key: ANTHROPIC_MODEL
         value: claude-sonnet-4-6
       - key: DATA_DIR

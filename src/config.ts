@@ -29,7 +29,7 @@ const schema = z.object({
   FACILITATOR_URL: z
     .string()
     .url()
-    .default('https://api.testnet.blocky402.com/v1'),
+    .default('https://api.testnet.blocky402.com'),
 
   /** Optional pre-created HCS topic for proofs. Auto-created if omitted. */
   HCS_TOPIC_ID: hederaId.optional(),
